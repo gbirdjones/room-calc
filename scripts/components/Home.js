@@ -24,6 +24,9 @@ module.exports = React.createClass({
 			);
 	},
 	calc: function(e) {
+		var convert = function(a) {
+			a*0.09290304
+		}
 		console.log('im running!');
 		e.preventDefault();
 		var length = document.getElementById('length').value;
@@ -33,7 +36,7 @@ module.exports = React.createClass({
 		if((!isNaN(length))&&(!isNaN(width))) {
 			var meters = null;
 			var answer = +length*+width;
-			meters = +answer*0.09290304;
+			meters = convert(answer);
 			square.innerHTML = 'The area of your room is '+answer+' square feet and '+meters+' square meters.';
 		} else {
 			window.alert('Please enter numeric values');
